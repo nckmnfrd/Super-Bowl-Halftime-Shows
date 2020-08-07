@@ -39,7 +39,6 @@ plt.show()
 display(super_bowls[super_bowls['combined_pts'] > 70])
 display(super_bowls[super_bowls["combined_pts"] < 25])
 
-
 # Plot a histogram of point differences
 plt.hist(super_bowls.difference_pts)
 plt.xlabel('Point Difference')
@@ -56,11 +55,9 @@ games_tv = pd.merge(tv[tv['super_bowl'] > 1], super_bowls, on='super_bowl')
 
 # Import seaborn
 import seaborn as sns
-# ... YOUR CODE FOR TASK 5 ...
 
 # Create a scatter plot with a linear regression model fit
 sns.regplot(x= 'difference_pts', y= 'share_household' , data=games_tv)
-
 
 # Create a figure with 3x1 subplot and activate the top subplot
 plt.subplot(3, 1, 1)
@@ -75,19 +72,15 @@ plt.title('Household Rating')
 # Activate the bottom subplot
 plt.subplot(3, 1, 3)
 plt.plot(tv["super_bowl"], tv["ad_cost"], "#FFB000")
-
 plt.title('Ad Cost')
 plt.xlabel('SUPER BOWL')
 
 # Improve the spacing between subplots
 plt.tight_layout()
 
-
 # Display all halftime musicians for Super Bowls up to and including Super Bowl XXVII
-
 up_to_27 = halftime_musicians.super_bowl <= 27
 halftime_musicians[up_to_27]
-
 
 # Count halftime show appearances for each musician and sort them from most to least
 halftime_appearances = halftime_musicians.groupby('musician').count()['super_bowl'].reset_index()
@@ -111,9 +104,8 @@ plt.xlabel("Number of Songs Per Halftime Show Performance")
 plt.ylabel('Number of Musicians')
 plt.show()
 
-# Sort the non-band musicians by number of songs per appearance...
+# Sort the non-band musicians by number of songs per appearance
 no_bands = no_bands.sort_values('num_songs', ascending=False)
-# ...and display the top 15
 display(no_bands.head(15))
 
 
